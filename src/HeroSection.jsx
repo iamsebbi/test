@@ -5,8 +5,7 @@ import Button from "./Button";
 // Configuration
 // ─────────────────────────────────────────────────────────────────────────────
 
-const VIDEO_URL_DESKTOP =
-  "https://assets.mixkit.co/videos/preview/mixkit-photographer-capturing-a-photo-in-the-forest-43343-large.mp4";
+const VIDEO_URL_DESKTOP = "/heroH.mp4";
 
 const VIDEO_URL_MOBILE = "/hero.mp4";
 
