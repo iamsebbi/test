@@ -101,7 +101,7 @@ const HeroSection = () => {
         </div>
 
         {/* Copyright */}
-        <div className="text-lg md:text-78xl">&copy;{currentYear}</div>
+        <div className="text-lg md:text-7xl">&copy;{currentYear}</div>
       </div>
     </section>
   );
