@@ -1,4 +1,4 @@
-import { motion, type Variants } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 
 // ─────────────────────────────────────────────────────────────
 // CONFIGURATION
@@ -15,7 +15,7 @@ const CONFIG = {
 
   // Animation
   duration: 0.7,
-  ease: [0.4, 0, 0.2, 1] as const,
+  ease: [0.4, 0, 0.2, 1],
   imageDelay: 0.15,
   textDelay: 0.1,
 
@@ -25,7 +25,7 @@ const CONFIG = {
   brightnessHover: 0.8,
   textScaleDown: 0.9,
   noiseOpacityHover: 0.5,
-} as const;
+};
 
 // Noise SVG (encoded for inline use)
 const NOISE_SVG = `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.99' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
@@ -39,7 +39,7 @@ const PROJECTS = [
 // ─────────────────────────────────────────────────────────────
 // VARIANTS
 // ─────────────────────────────────────────────────────────────
-const containerVariants: Variants = {
+const containerVariants = {
   rest: {
     width: `calc(100% - ${CONFIG.frameGap})`,
     height: `calc(100% - ${CONFIG.frameGap})`,
@@ -52,7 +52,7 @@ const containerVariants: Variants = {
   },
 };
 
-const imageVariants: Variants = {
+const imageVariants = {
   rest: { scale: 1, filter: "blur(0px) brightness(1)" },
   hover: {
     scale: CONFIG.imageZoom,
@@ -60,12 +60,12 @@ const imageVariants: Variants = {
   },
 };
 
-const noiseVariants: Variants = {
+const noiseVariants = {
   rest: { opacity: 0 },
   hover: { opacity: CONFIG.noiseOpacityHover },
 };
 
-const textVariants: Variants = {
+const textVariants = {
   rest: { scale: 1, opacity: 1 },
   hover: { scale: CONFIG.textScaleDown, opacity: 0.9 },
 };
@@ -73,12 +73,7 @@ const textVariants: Variants = {
 // ─────────────────────────────────────────────────────────────
 // COMPONENTS
 // ─────────────────────────────────────────────────────────────
-interface ProjectCardProps {
-  image: string;
-  title: string;
-}
-
-const ProjectCard = ({ image, title }: ProjectCardProps) => (
+const ProjectCard = ({ image, title }) => (
   <div className="w-full flex justify-center items-center bg-[#F7F4ED] overflow-hidden">
     <motion.div
       className="max-w-full flex items-center justify-center relative p-4 cursor-pointer"
