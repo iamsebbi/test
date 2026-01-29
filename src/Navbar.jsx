@@ -55,14 +55,14 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 py-4 transition-colors duration-300 ${navStyle}`}
+      className={`fixed top-0 w-full z-50 py-3 md:py-4 transition-colors duration-300 ${navStyle}`}
     >
       <div className="w-full px-6 md:px-12 flex justify-between items-center">
         {/* Logo */}
         <img
           src="/bold3.svg"
           alt="BOLD Logo"
-          className={`h-8 w-auto transition-all duration-300 ${logoStyle}`}
+          className={`h-5 md:h-8 w-auto transition-all duration-300 ${logoStyle}`}
         />
 
         {/* Desktop Navigation Links */}

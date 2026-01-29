@@ -1,95 +1,41 @@
-Prompt Tehnic pentru AI Agent
-Task: Implement HeroSection.jsx and Navbar.jsx components. Tech Stack: React (.jsx), Tailwind CSS (configured with custom theme). Context: The project uses a specific Design System with defined colors (canvas, primary, muted, accent) and fonts (font-sans, font-mono).
+1. Content & Header Structure:
 
-1. Components Structure & Layout
-   A. Navbar Component (Navbar.jsx)
+Creează o secțiune <section> cu un container principal.
 
-Position: Fixed top (fixed w-full z-50).
+Top Label: Un element <span> cu textul (studio), font size mic (text-xs/sm), lowercase, text-muted-foreground.
 
-State Behavior:
+Copy Block: Un <p> cu textul: "surpirndem momente care ii aducpe oameni impreuna. din iasi, venim cu un mix de curiozitate si atentie la detaliu, transformanda nunti, botezuri sau petrecerea ta in amintiri vizuale clare. lucram relaxa, alaturi de tine, pentru a d forma unei povesti care sa ramana vie peste ani, fie ca vorba de inceputul unei familii sau bucuria unui moment nou".
 
-Initial state: Transparent background (bg-transparent), Text color adaptable to video (likely white or text-canvas).
+CTA: Un component Button (shadcn) cu variant "link" sau "outline", label "mai mult", plasat sub text.
 
-On Scroll (> 50px): Background becomes opaque (bg-canvas / dark:bg-canvas-dark), Text becomes text-primary. Includes a smooth transition (transition-all duration-300).
+2. Image Grid System (Desktop - 3 Columns):
 
-Desktop Layout (md:flex):
+Folosește un wrapper cu display: flex sau grid-cols-3 cu itemi aliniați asimetric:
 
-Left: Logo.
+Card 1: Image wrapper cu h-screen (sau h-[100vh]), aspect-ratio portrait.
 
-Center: Navigation Links (Evenimente, Oferte, Echipa, Galerie). Use font-sans.
+Card 2: Image wrapper cu înălțime mai mică, aspect-ratio landscape, centrat vertical.
 
-Right: "Contact" Button. Style: bg-accent text-white, hover effects.
+Card 3: Image wrapper cu aspect-ratio portrait, înălțime aproximativ 70-80% din Card 1.
 
-Mobile Layout:
+Service Footer: Sub fiecare imagine, un div cu flex justify-between items-center w-full mt-2.
 
-Left: Logo.
+Stânga: Text mic (ex: "nunta ta").
 
-Right: Hamburger Menu Icon (triggers mobile menu drawer - implementation optional but icon required).
+Dreapta: Text mic (ex: "exploreaza").
 
-B. Hero Section Component (HeroSection.jsx)
+3. Responsive Logic (Mobile):
 
-Container: Full viewport height (h-screen), relative positioning.
+Pe mobile (hidden md:flex logic), transformă grid-ul într-o coloană (flex-col).
 
-Background:
+Order: Păstrează ordinea Portrait (1) -> Landscape (2) -> Portrait (3).
 
-HTML5 <video> tag: Absolute, full width/height, object cover, loop, muted, autoplay, playsinline.
+Sync Dimensions: Cele două imagini de tip Portrait (1 și 3) trebuie să aibă aceeași înălțime și aspect-ratio pe mobil pentru consistență vizuală.
 
-Overlay: Optional subtle dark overlay to ensure text readability if needed.
+4. Technical Requirements:
 
-Center Content:
+Folosește img cu object-cover pentru a asigura încadrarea corectă în containerele asimetrice.
 
-Title: "ONE FRAME.<br />ONE MOMENT.<br />FOREVER".
+Aplică text-muted-foreground pentru textele secundare conform specificațiilor.
 
-Style: Centered, Large Typography (H1), font-sans (or font-mono for artistic effect), high contrast.
-
-CTA Button: Text "OFERTE".
-
-Style: Placed below title, bg-accent (dark:bg-accent-dark), text white, rounded, padding, hover transition.
-
-Bottom Bar (Footer of Hero):
-
-Position: Absolute bottom (bottom-0 w-full), padding (p-4 or p-6).
-
-Layout: Flexbox, justify-between, items-center.
-
-Typography: text-sm, font-mono or font-sans, text-canvas (or white/readable on video).
-
-Content Logic:
-
-Left Element:
-
-Desktop: "Scroll to view more".
-
-Mobile: Hidden (hidden md:block).
-
-Center Element:
-
-Text: "Povești vizuale create în Iași, unde detaliul și claritatea vin pe primul loc".
-
-Alignment: Center (or part of the flow depending on space).
-
-Right Element:
-
-Text: &copy; {new Date().getFullYear()}.
-
-2. Design System Application (Tailwind Config)
-   Fonts:
-
-Use font-sans (Inter) for body text and navigation.
-
-Use font-mono (Xanh Mono) for the Bottom Bar metadata or the Hero Title (if artistic direction allows).
-
-Colors:
-
-Use bg-accent for CTAs.
-
-Use text-canvas (or specific white) for text overlaying the video.
-
-Use bg-canvas and text-primary for the Navbar when scrolled.
-
-3. Constraints
-   Do not use raw CSS where Tailwind classes suffice.
-
-Ensure semantic HTML (e.g., <nav>, <header>, <main>).
-
-Code must be strictly React functional components with Hooks.
+Nu defini culori sau fonturi personalizate, folosește variabilele globale existente în proiect.

@@ -1,0 +1,31 @@
+/bold-agency
+├── app/
+│   ├── layout.js              # Fonturi, setări globale (Shared across all)
+│   ├── page.js                # SPLIT SCREEN (Poarta de intrare)
+│   │
+│   ├── (events)/              # Tot ce ține de BOLD Events (Grupare logică)
+│   │   ├── events/
+│   │   │   ├── layout.js      # Header & Footer specifice evenimentelor
+│   │   │   ├── page.js        # Homepage Events
+│   │   │   ├── portofoliu/
+│   │   │   └── contact/       # Formular "Book a Date"
+│   │
+│   ├── (creative)/            # Tot ce ține de BOLD Creative
+│   │   ├── creative/
+│   │   │   ├── layout.js      # Header & Footer specifice web dev
+│   │   │   ├── page.js        # Homepage Creative
+│   │   │   ├── proiecte/
+│   │   │   └── contact/       # Formular "Request a Quote"
+│   │
+│   └── api/                   # Endpoint-uri pentru mail-uri/contact
+│
+├── components/
+│   ├── shared/                # Butoane, UI-uri care apar în ambele părți
+│   ├── events/                # Componente specifice (ex: PhotoMasonry)
+│   └── creative/              # Componente specifice (ex: TechStackGrid)
+│
+├── public/
+│   ├── events/                # Asset-uri organizate
+│   └── creative/
+│
+└── tailwind.config.js         # Aici definim culorile pt ambele branduri
